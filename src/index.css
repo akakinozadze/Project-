@@ -11,6 +11,142 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 .seconBox {
   display: flex;
   flex-wrap: wrap;
@@ -18,22 +154,157 @@ code {
   width: 100%;
 }
 .mapMainBox {
-  max-width: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 2px solid black;
+  align-items: start;
+  background-color: rgb(248, 245, 242);
 }
 .img {
-  max-width: 100px;
-  height: 100px;
   width: 100%;
-  border: 1px solid black;
+  background-color: rgb(200, 206, 206);
+}
+.ImageBox {
+  width: 100%;
 }
 .pharagrap {
+  font-size: 16px;
+  font-weight: 600;
+}
+.DetalsBoxMain {
+  border: 3px solid gold;
+  box-shadow: 5px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  max-width: 900px;
+  min-height: 700px;
   width: 100%;
-  border: 1px solid black;
+}
+.DetalsBox {
+  max-width: 250px;
+  min-height: 200px;
+  width: 100%;
+}
+.DetalsPageImg {
+  border: 5px solid gold;
+  max-width: 610px;
+  width: 100%;
+}
+.NavBar {
+  max-width: 1300px;
+  min-height: 30px;
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  box-shadow: 3px 4px 4px;
+  margin: 5px;
+}
+.DetalsPagePharagap {
   font-size: 20px;
-  background-color: cadetblue;
+  font-weight: 500;
+  color: red;
+}
+.NavbarH2 {
+  font-size: 22px;
+  color: black;
+  font-weight: 800;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.FirstBox {
+  max-width: 150px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.FirstMAinBox {
+  max-width: 1300px;
+  width: 100%;
+}
+.addToCartButton {
+  border-radius: 8px;
+  background-color: rgb(242, 186, 44);
+  border: none;
+  margin: 4px;
+}
+.addToCartButton:hover {
+  background-color: rgb(179, 135, 22);
+  cursor: pointer;
+}
+.pharagrapprice {
+  position: relative;
+  max-width: 58px;
+  width: 100%;
+  font-weight: 900;
+  font-size: 20px;
+}
+.pharagrapprice::before {
+  position: absolute;
+  content: "$";
+  font-size: 12px;
+  top: 0;
+  left: 0;
+}
+.CardDetalesBox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.BackToResultsButton {
+  max-width: 120px;
+  border: none;
+  margin: 10px;
+}
+.BackToResultsButton:hover {
+  cursor: pointer;
+  border-bottom: 1px solid rgb(67, 65, 65);
+}
+.BackToResultsButton::before {
+  content: "<";
+  margin-right: 5px;
+}
+.priceDetalPh {
+  max-width: 200px;
+  width: 100%;
+  border-left: 1px solid;
+  display: flex;
+  justify-content: center;
+}
+.priceDetalPh2 {
+  max-width: 180px;
+  width: 100%;
+}
+.pharagrapprice1 {
+  position: relative;
+  max-width: 58px;
+  width: 100%;
+  font-weight: 900;
+  font-size: 20px;
+}
+.pharagrapprice1:before {
+  position: absolute;
+  content: "$";
+  font-size: 12px;
+  top: 0;
+  left: 0;
+}
+.addToCartButton2 {
+  border-radius: 18px;
+  background-color: rgb(242, 186, 44);
+  border: none;
+  max-width: 170px;
+  min-height: 25px;
+  width: 100%;
+  margin: 4px;
+}
+.addToCartButton2:hover {
+  background-color: rgb(179, 135, 22);
+  cursor: pointer;
 }

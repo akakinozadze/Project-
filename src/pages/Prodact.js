@@ -3,7 +3,8 @@ import DataProduct from "../components/DataProduct";
 
 const Prodact = () => {
   return (
-    <div>
+    <div className="FirstMAinBox">
+      <h1>heloo thear</h1>
       <DataProduct />
     </div>
   );

@@ -5,6 +5,8 @@ import Users from "./Users";
 const DataProduct = () => {
   // აქ უკვე ინახება 5 ცალი პროდუქტის სერვერიდან წამოღებული ინფო
   const [product, setProduct] = useState([]);
+  console.log(product);
+
   const [errorMesage, setErrorMesage] = useState("");
   const [showMore, setShowMore] = useState(10);
   useEffect(() => {
@@ -43,7 +45,7 @@ const DataProduct = () => {
     <div className="Main">
       <div className="seconBox">
         {product.map((prodactElemet) => (
-          <Users data={prodactElemet} key={prodactElemet.id} />
+          <Users key={prodactElemet.id} data={prodactElemet} />
         ))}
       </div>
       <button className="buttonShowMore" onClick={SowMorOnClick}>
