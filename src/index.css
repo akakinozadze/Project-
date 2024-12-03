@@ -308,3 +308,10 @@ table {
   background-color: rgb(179, 135, 22);
   cursor: pointer;
 }
+.PriceBox {
+  /* background-color: cadetblue; */
+  display: flex;
+  justify-content: space-around;
+  max-width: 140px;
+  width: 100%;
+}

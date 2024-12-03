@@ -5,8 +5,6 @@ import Users from "./Users";
 const DataProduct = () => {
   // აქ უკვე ინახება 5 ცალი პროდუქტის სერვერიდან წამოღებული ინფო
   const [product, setProduct] = useState([]);
-  console.log(product);
-
   const [errorMesage, setErrorMesage] = useState("");
   const [showMore, setShowMore] = useState(10);
   useEffect(() => {
