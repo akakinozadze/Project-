@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardDetales from "../components/CardDetales";
+import { useApcontext } from "../context/AppContextProvaider";
 const Detailsprodact = () => {
   const navigate = useNavigate();
   const params = useParams();
-  console.log(typeof params.dataId, "dataid");
+  // console.log(typeof params.dataId, "dataid");
 
   const [data, setData] = useState([]);
+  // console.log(data, "ra shemoaqvs");
 
   const [errorMesage, setErrorMesage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  // let [first, setFirst] = useApcontext();
+  // console.log(first, "first");
+
   useEffect(() => {
     fetch(`https://dummyjson.com/product/${params.dataId}`)
       .then((res) => {
@@ -19,6 +24,7 @@ const Detailsprodact = () => {
       })
       .then((data) => {
         setData([data]);
+        // setFirst([data]);
       })
       .catch((error) => {
         setErrorMesage(error.message);
