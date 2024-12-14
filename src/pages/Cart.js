@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useApcontext } from "../context/AppContextProvaider";
 
 const Cart = () => {
-  let obj = {
-    thumbnail: "",
-    title: "",
-  };
-  obj.thumbnail = localStorage.getItem("thumbnail");
-  obj.title = localStorage.getItem("title");
-  console.log(obj, "local");
+  // const [first] = useApcontext();
+  // let sum = [];
+  // console.log(sum, "meoresacavi");
+  // useEffect(() => {
+  //   JSON.parse(localStorage.getItem("key"));
+  // }, [first]);
+
   return (
     <div>
-      {[obj].map((e) => (
+      {/* {sum.map((e) => (
         <>
           <h1>{e.title}</h1>
           <img src={e.thumbnail}></img>
         </>
-      ))}
+      ))} */}
       {/* <h2>count : {sum.first}</h2>
       <button
         onClick={() => {

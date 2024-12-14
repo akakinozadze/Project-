@@ -3,15 +3,11 @@ import Navbar from "./Navbar";
 import { useApcontext } from "../context/AppContextProvaider";
 
 const CardDetales = ({ element }) => {
-  // console.log(element, "element");
 
   const [price, setPrice] = useState(element.price);
   const [select, setSelect] = useState([]);
   const [sum, setSum] = useState(element.price);
 
-  // console.log(select, "select");
-  // console.log(price, "price");
-  // console.log(sum, "sum");
   useEffect(() => {
     if (select == 1) {
       setSum(price);
@@ -21,11 +17,11 @@ const CardDetales = ({ element }) => {
       setSum(price * 3);
     }
   }, [select]);
-  let [first, setFirst] = useApcontext();
+  // let [first, setFirst] = useApcontext();
 
-  const ClickHendler = () => {
-    setFirst(element);
-  };
+  // const ClickHendler = () => {
+  //   setFirst(element);
+  // };
 
   return (
     <div className="CardDetalesBox">
@@ -53,7 +49,7 @@ const CardDetales = ({ element }) => {
             </select>
           </div>
           <p className="pharagrap">{element.availabilityStatus}</p>
-          <button className="addToCartButton2" onClick={ClickHendler}>
+          <button className="addToCartButton2" >
             Add to cart
           </button>
         </div>

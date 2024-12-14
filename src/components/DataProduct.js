@@ -1,48 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Fetch1 from "../api/fetch";
 import Users from "./Users";
+import { useApcontext } from "../context/AppContextProvaider";
+import {
+  CreateSaveErrorData,
+  CreateSaveProdactData,
+} from "../context/appActionCreators";
+import { RiseLoader } from "react-spinners";
 
 const DataProduct = () => {
-  // აქ უკვე ინახება 5 ცალი პროდუქტის სერვერიდან წამოღებული ინფო
-  const [product, setProduct] = useState([]);
-  const [errorMesage, setErrorMesage] = useState("");
+  const { state, dispatch } = useApcontext();
   const [showMore, setShowMore] = useState(10);
-  useEffect(() => {
-    Fetch1()
-      .then((data) => {
-        setProduct(data.products);
-      })
-      .catch((error) => {
-        setErrorMesage(error.message);
-      })
-      .finally(() => {});
-  }, []);
 
   const SowMorOnClick = (e) => {
     // ხუთზე მეტი პროდუქტის დასახატი
     e.preventDefault();
     Fetch1(showMore)
       .then((data) => {
-        setProduct(data.products);
+        dispatch(CreateSaveProdactData(data.products));
       })
       .catch((error) => {
-        setErrorMesage(error.message);
+        dispatch(CreateSaveErrorData(error.message));
       });
     setShowMore(showMore + 5);
   };
 
-  if (errorMesage) {
+  if (state.ErrorProdactData) {
     // თუ ერორი მოხდა  მესიჯის გამოტანა
     return (
       <div>
-        <h1>{errorMesage}</h1>
+        <h1>{state.ErrorProdactData}</h1>
       </div>
     );
   }
+
   return (
     <div className="Main">
       <div className="seconBox">
-        {product.map((prodactElemet) => (
+        {state.IsProdactLoading && <RiseLoader color="#2be714" size={"10px"} />}
+        {state.Prodacts.map((prodactElemet) => (
           <Users key={prodactElemet.id} data={prodactElemet} />
         ))}
       </div>
