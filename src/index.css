@@ -309,9 +309,41 @@ table {
   cursor: pointer;
 }
 .PriceBox {
-  /* background-color: cadetblue; */
   display: flex;
   justify-content: space-around;
   max-width: 140px;
   width: 100%;
+}
+.minBoxStorage {
+  display: flex;
+  flex-direction: column;
+}
+.storageBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 300px;
+  width: 100%;
+  margin: 20px;
+}
+.storageBox img {
+  max-width: 100px;
+  width: 100%;
+}
+.storageBox p {
+  max-width: 120px;
+  width: 100%;
+}
+.localPrace {
+  width: 100%;
+  /* background-color: aqua; */
+  position: relative;
+  max-width: 120px;
+}
+.localPrace::after {
+  content: "$";
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardDetales from "../components/CardDetales";
-import { useApcontext } from "../context/AppContextProvaider";
 const Detailsprodact = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [data, setData] = useState([]);
-  console.log(data, "data3");
 
   const [errorMesage, setErrorMesage] = useState("");
   const [isLoading, setIsLoading] = useState(true);

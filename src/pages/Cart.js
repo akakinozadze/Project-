@@ -2,31 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useApcontext } from "../context/AppContextProvaider";
 
 const Cart = () => {
-  // const [first] = useApcontext();
-  // let sum = [];
-  // console.log(sum, "meoresacavi");
-  // useEffect(() => {
-  //   JSON.parse(localStorage.getItem("key"));
-  // }, [first]);
+  let takeLocal = JSON.parse(localStorage.getItem("Key"));
+  console.log(takeLocal);
 
   return (
-    <div>
-      {/* {sum.map((e) => (
-        <>
-          <h1>{e.title}</h1>
-          <img src={e.thumbnail}></img>
-        </>
-      ))} */}
-      {/* <h2>count : {sum.first}</h2>
-      <button
-        onClick={() => {
-          sum.setFirst(sum.first + 1);
-        }}
-      >
-        incriment
-      </button> */}
+    <div className="minBoxStorage">
+      {Boolean(takeLocal)
+        ? takeLocal.map((e) => (
+            <div className="storageBox">
+              <img src={e.prPhoto}></img>
+              <p>{e.prName}</p>
+              <p className="localPrace">{e.price}</p>
+            </div>
+          ))
+        : "hello"}
     </div>
   );
 };
 
 export default Cart;
+
+let x = "1";
+
+x = "" ? true : "chveni mepi";
+console.log(x);

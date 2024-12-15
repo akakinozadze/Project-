@@ -8,6 +8,8 @@ export const initialeState = {
 
 export function appReducer(state, action) {
   const { type, payload } = action;
+  console.log(type, "type");
+  console.log(payload, "payload");
 
   switch (type) {
     case appAction.ProdactDataSaved: {

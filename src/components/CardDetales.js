@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import { useApcontext } from "../context/AppContextProvaider";
+import { LocalStorage3, localStorage3 } from "../Localstorage/Localstorage";
 
 const CardDetales = ({ element }) => {
-
   const [price, setPrice] = useState(element.price);
   const [select, setSelect] = useState([]);
   const [sum, setSum] = useState(element.price);
@@ -17,11 +15,12 @@ const CardDetales = ({ element }) => {
       setSum(price * 3);
     }
   }, [select]);
-  // let [first, setFirst] = useApcontext();
+  const [urika, setUrika] = useState();
 
-  // const ClickHendler = () => {
-  //   setFirst(element);
-  // };
+  const ClickHendler = () => {
+    setUrika(element);
+  };
+  LocalStorage3(urika);
 
   return (
     <div className="CardDetalesBox">
@@ -49,7 +48,7 @@ const CardDetales = ({ element }) => {
             </select>
           </div>
           <p className="pharagrap">{element.availabilityStatus}</p>
-          <button className="addToCartButton2" >
+          <button className="addToCartButton2" onClick={ClickHendler}>
             Add to cart
           </button>
         </div>
