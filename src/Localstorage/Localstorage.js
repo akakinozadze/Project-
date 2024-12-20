@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 export function LocalStorage3(urika) {
   if (urika) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { LocalStorage3, localStorage3 } from "../Localstorage/Localstorage";
+import { LocalStorage3 } from "../Localstorage/Localstorage";
 
 const CardDetales = ({ element }) => {
   const [price, setPrice] = useState(element.price);
@@ -16,12 +16,10 @@ const CardDetales = ({ element }) => {
     }
   }, [select]);
   const [urika, setUrika] = useState();
-
   const ClickHendler = () => {
     setUrika(element);
   };
   LocalStorage3(urika);
-
   return (
     <div className="CardDetalesBox">
       <div>

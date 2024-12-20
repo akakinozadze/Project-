@@ -336,7 +336,6 @@ table {
 }
 .localPrace {
   width: 100%;
-  /* background-color: aqua; */
   position: relative;
   max-width: 120px;
 }
@@ -346,4 +345,7 @@ table {
   position: absolute;
   top: 0;
   right: 0;
+}
+.Loader {
+  margin: auto;
 }

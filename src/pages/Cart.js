@@ -1,18 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { useApcontext } from "../context/AppContextProvaider";
-
+import React, { useState } from "react";
 const Cart = () => {
-  let takeLocal = JSON.parse(localStorage.getItem("Key"));
-  console.log(takeLocal);
+  const [getItemLocalStorage, setGetItemLocalStorage] = useState(() => {
+    let getin = localStorage.getItem("Key");
+    getin = getin ? JSON.parse(getin) : [];
+    return getin;
+  });
+
+  const DeletHendler = (index) => {
+    let NewStorage = [];
+    NewStorage = getItemLocalStorage;
+    NewStorage.splice(index, 1);
+    setGetItemLocalStorage([...NewStorage]);
+    localStorage.setItem("Key", JSON.stringify(getItemLocalStorage));
+  };
 
   return (
     <div className="minBoxStorage">
-      {Boolean(takeLocal)
-        ? takeLocal.map((e) => (
+      {Boolean(getItemLocalStorage)
+        ? getItemLocalStorage.map((e, index) => (
             <div className="storageBox">
               <img src={e.prPhoto}></img>
               <p>{e.prName}</p>
               <p className="localPrace">{e.price}</p>
+              <button
+                onClick={() => {
+                  DeletHendler(index);
+                }}
+              >
+                delet
+              </button>
             </div>
           ))
         : "hello"}
@@ -22,7 +38,11 @@ const Cart = () => {
 
 export default Cart;
 
-let x = "1";
+// let x = "1";
 
-x = "" ? true : "chveni mepi";
-console.log(x);
+// x = "" ? true : "chveni mepi";
+// console.log(x);
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// fruits.pop();
+// console.log(fruits);

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CardDetales from "../components/CardDetales";
+import { RiseLoader } from "react-spinners";
+
 const Detailsprodact = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [data, setData] = useState([]);
-
   const [errorMesage, setErrorMesage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -16,8 +17,6 @@ const Detailsprodact = () => {
         }
       })
       .then((data) => {
-        console.log(data, "data");
-
         setData([data]);
       })
       .catch((error) => {
@@ -40,6 +39,7 @@ const Detailsprodact = () => {
       >
         Back to results
       </button>
+      {isLoading && <RiseLoader className="Loader" color="#2be714" size={"50px"} />}
       {data.map((element) => (
         <CardDetales key={element.id} element={element} />
       ))}
