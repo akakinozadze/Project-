@@ -18,7 +18,7 @@ const Cart = () => {
     <div className="minBoxStorage">
       {Boolean(getItemLocalStorage)
         ? getItemLocalStorage.map((e, index) => (
-            <div className="storageBox">
+            <div key={index} className="storageBox">
               <img src={e.prPhoto}></img>
               <p>{e.prName}</p>
               <p className="localPrace">{e.price}</p>
@@ -38,11 +38,3 @@ const Cart = () => {
 
 export default Cart;
 
-// let x = "1";
-
-// x = "" ? true : "chveni mepi";
-// console.log(x);
-
-// const fruits = ["Banana", "Orange", "Apple", "Mango"];
-// fruits.pop();
-// console.log(fruits);

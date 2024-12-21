@@ -1,13 +1,13 @@
-const Home = "/";
-const Products = "/Products";
-const Detailsprodact = "/Products/:dataId";
-const Cart = "/Cart";
+const home = "/";
+const products = "/products";
+const detailsprodact = "/products/:dataId";
+const cart = "/cart";
 
 const routes = {
-  Home,
-  Products,
-  Detailsprodact,
-  Cart,
+  home,
+  products,
+  detailsprodact,
+  cart,
 };
 
 export default routes;

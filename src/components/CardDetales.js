@@ -26,9 +26,15 @@ const CardDetales = ({ element }) => {
         <img className="DetalsPageImg" src={element.thumbnail}></img>
       </div>
       <div>
-        <h1 className="DetalsPagePharagap">{element.brand}</h1>
-        <h2 className="DetalsPagePharagap">{element.title}</h2>
-        <p>{element.dimensions.depth}</p>
+        <h1 className="DetalsPagePharagap">brand -- {element.brand}</h1>
+        <h2 className="DetalsPagePharagap">title -- {element.title}</h2>
+        <p> dimensions</p>
+        <p>depth -- {element.dimensions.depth} </p>
+        <p>height -- {element.dimensions.height} </p>
+        <p>width -- {element.dimensions.width} </p>
+        <p>returnPolicy -- {element.returnPolicy} </p>
+        <p>shippingInformation -- {element.shippingInformation} </p>
+        <p>weight -- {element.weight} </p>
       </div>
       <div className="priceDetalPh">
         <div className="priceDetalPh2">

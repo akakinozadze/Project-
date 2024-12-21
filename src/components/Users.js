@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import routes from "../constants/routes";
+import { LocalStorage3 } from "../Localstorage/Localstorage";
 
 const Users = ({ data }) => {
   const navigate = useNavigate();
-
+  const [urika, setUrika] = useState();
+  const EddTocarfHendler = () => {
+    setUrika(data);
+  };
+  LocalStorage3(urika);
   return (
     <div>
       <div
         className="FirstBox"
         onClick={() => {
-          navigate(`${routes.Products}/${data.id}`);
+          navigate(`${routes.products}/${data.id}`);
         }}
       >
         <div className="mapMainBox">
@@ -25,7 +30,8 @@ const Users = ({ data }) => {
       <button
         className="addToCartButton"
         onClick={() => {
-          navigate(`${routes.Cart}`);
+          EddTocarfHendler();
+          navigate(`${routes.cart}`);
         }}
       >
         Add to cart
