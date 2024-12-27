@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { appRoutes } from "./config/routes";
 import { Route, Routes } from "react-router-dom";
-import Detailsprodact from "./pages/Detailsprodact";
 
 const AppRouts = () => {
   return (

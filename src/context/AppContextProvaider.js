@@ -29,9 +29,9 @@ const AppContextProvaider = ({ children }) => {
 };
 
 export const useApcontext = () => {
-  const store = useContext(appContext);
-  if (appContext) {
-    return store;
+  const contexr = useContext(appContext);
+  if (contexr) {
+    return contexr;
   }
 
   throw new Error("error");
