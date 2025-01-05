@@ -5,8 +5,7 @@ const Cart = () => {
     retrieving = retrieving ? JSON.parse(retrieving) : [];
     return retrieving;
   });
-  const [counter, setCounter] = useState(0);
-  console.log(counter);
+
 
   const DeletHendler = (index) => {
     let NewStorage = [];
@@ -46,7 +45,6 @@ const Cart = () => {
               <button
                 onClick={() => {
                   DecrimnetHendler(index);
-                  setCounter(counter - 1);
                 }}
               >
                 -
@@ -55,7 +53,6 @@ const Cart = () => {
               <button
                 onClick={() => {
                   IncrimentHendler(index);
-                  setCounter(counter + 1);
                 }}
               >
                 +
