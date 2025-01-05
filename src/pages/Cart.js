@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useApcontext } from "../context/AppContextProvaider";
-import { decrimentFnc, incrimentFnc } from "../context/appActionCreators";
 const Cart = () => {
   const [getItemLocalStorage, setGetItemLocalStorage] = useState(() => {
-    let getin = localStorage.getItem("Key");
-    getin = getin ? JSON.parse(getin) : [];
-    return getin;
+    let retrieving = localStorage.getItem("Key");
+    retrieving = retrieving ? JSON.parse(retrieving) : [];
+    return retrieving;
   });
+  const [counter, setCounter] = useState(0);
+  console.log(counter);
 
   const DeletHendler = (index) => {
     let NewStorage = [];
@@ -15,31 +15,47 @@ const Cart = () => {
     setGetItemLocalStorage([...NewStorage]);
     localStorage.setItem("Key", JSON.stringify(getItemLocalStorage));
   };
-  const {
-    state: { counter },
-    dispatch,
-  } = useApcontext();
-  console.log({ state: counter }, "counter");
+  const IncrimentHendler = (index) => {
+    let updatedStorage = localStorage.getItem("Key");
+    updatedStorage = updatedStorage ? JSON.parse(updatedStorage) : [];
+    if (index >= 0) {
+      updatedStorage[index].total = updatedStorage[index].total + 1;
+    }
+    setGetItemLocalStorage(updatedStorage);
+
+    localStorage.setItem("Key", JSON.stringify(updatedStorage));
+  };
+
+  const DecrimnetHendler = (index) => {
+    let updatedStorage = localStorage.getItem("Key");
+    updatedStorage = updatedStorage ? JSON.parse(updatedStorage) : [];
+    if (index >= 0) {
+      updatedStorage[index].total = updatedStorage[index].total - 1;
+    }
+    setGetItemLocalStorage(updatedStorage);
+    localStorage.setItem("Key", JSON.stringify(updatedStorage));
+  };
 
   return (
     <div className="minBoxStorage">
       {Boolean(getItemLocalStorage)
         ? getItemLocalStorage.map((e, index) => (
             <div key={index} className="storageBox">
-              {console.log(index, "index")}
               <img src={e.prPhoto}></img>
               <p>{e.prName}</p>
               <button
                 onClick={() => {
-                  dispatch(decrimentFnc(1));
+                  DecrimnetHendler(index);
+                  setCounter(counter - 1);
                 }}
               >
                 -
               </button>
-              {counter}
+              {e.total}
               <button
                 onClick={() => {
-                  dispatch(incrimentFnc(1));
+                  IncrimentHendler(index);
+                  setCounter(counter + 1);
                 }}
               >
                 +
