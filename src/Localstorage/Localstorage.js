@@ -17,7 +17,6 @@ export function LocalStorage3(urika) {
     }
     if (index >= 0) {
       sumStorage[index].total = sumStorage[index].total + 1;
-      console.log("akaki");
     }
 
     localStorage.setItem("Key", JSON.stringify(sumStorage));

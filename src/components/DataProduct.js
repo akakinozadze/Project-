@@ -50,3 +50,5 @@ const DataProduct = () => {
 };
 
 export default DataProduct;
+
+
