@@ -6,6 +6,8 @@ import { LocalStorage3 } from "../Localstorage/Localstorage";
 const Users = ({ data }) => {
   const navigate = useNavigate();
   const [urika, setUrika] = useState();
+  console.log(urika);
+  
   const EddTocarfHendler = () => {
     setUrika(data);
   };

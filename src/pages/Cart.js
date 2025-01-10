@@ -3,13 +3,22 @@ const Cart = () => {
   const [getItemLocalStorage, setGetItemLocalStorage] = useState(() => {
     let retrieving = localStorage.getItem("Key");
     retrieving = retrieving ? JSON.parse(retrieving) : [];
+    console.log(retrieving, "ret");
+
     retrieving.forEach((item) => {
       if (!item.initialPrice) {
         item.initialPrice = item.price;
       }
     });
+
     return retrieving;
   });
+  console.log(getItemLocalStorage);
+
+  let sum = getItemLocalStorage.reduce((sawyisiNoli, titoeuliElemenTi) => {
+    return sawyisiNoli + titoeuliElemenTi.initialPrice;
+  }, 0);
+  console.log(sum, "sum");
 
   const DeletHendler = (index) => {
     let NewStorage = [];
@@ -20,7 +29,6 @@ const Cart = () => {
   };
   const IncrimentHendler = (index) => {
     let updatedStorage = [...getItemLocalStorage];
-
     if (index >= 0 && updatedStorage[index].total < 10) {
       updatedStorage[index].total = updatedStorage[index].total + 1;
       updatedStorage[index].price =
@@ -32,7 +40,7 @@ const Cart = () => {
 
   const DecrimnetHendler = (index) => {
     let updatedStorage = [...getItemLocalStorage];
-    if (index >= 0 && updatedStorage[index].total > 0) {
+    if (index >= 0 && updatedStorage[index].total > 1) {
       updatedStorage[index].total = updatedStorage[index].total - 1;
       updatedStorage[index].price =
         updatedStorage[index].price - updatedStorage[index].initialPrice;
@@ -43,38 +51,49 @@ const Cart = () => {
 
   return (
     <div className="minBoxStorage">
-      {Boolean(getItemLocalStorage)
-        ? getItemLocalStorage.map((element, index) => (
-            <div key={index} className="storageBox">
-              <img src={element.prPhoto}></img>
-              <p>{element.prName}</p>
-              <button
-                onClick={() => {
-                  DecrimnetHendler(index);
-                }}
-              >
-                -
-              </button>
-              {element.total}
-              <button
-                onClick={() => {
-                  IncrimentHendler(index);
-                }}
-              >
-                +
-              </button>
+      {Boolean(getItemLocalStorage) ? (
+        <div className="TestOnli">
+          <div className="test2">
+            {getItemLocalStorage.map((element, index) => (
+              <div className="StoreMainBox">
+                <div key={index} className="storageBox">
+                  <img src={element.prPhoto}></img>
+                  <p>{element.prName}</p>
+                  <button
+                    onClick={() => {
+                      DecrimnetHendler(index);
+                    }}
+                  >
+                    -
+                  </button>
+                  {element.total}
+                  <button
+                    onClick={() => {
+                      IncrimentHendler(index);
+                    }}
+                  >
+                    +
+                  </button>
 
-              <p className="localPrace">{element.price}</p>
-              <button
-                onClick={() => {
-                  DeletHendler(index);
-                }}
-              >
-                delet
-              </button>
-            </div>
-          ))
-        : "hello"}
+                  <p className="localPrace">{element.price}</p>
+                  <button
+                    onClick={() => {
+                      DeletHendler(index);
+                    }}
+                  >
+                    delet
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="test3">
+            <h1>{sum + "$"}</h1>
+          </div>
+        </div>
+      ) : (
+        "hello"
+      )}
     </div>
   );
 };
