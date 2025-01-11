@@ -13,12 +13,10 @@ const Cart = () => {
 
     return retrieving;
   });
-  console.log(getItemLocalStorage);
 
-  let sum = getItemLocalStorage.reduce((sawyisiNoli, titoeuliElemenTi) => {
-    return sawyisiNoli + titoeuliElemenTi.initialPrice;
+  let sum = getItemLocalStorage.reduce((Starting, EachElement) => {
+    return Starting + EachElement.price;
   }, 0);
-  console.log(sum, "sum");
 
   const DeletHendler = (index) => {
     let NewStorage = [];
@@ -88,7 +86,7 @@ const Cart = () => {
             ))}
           </div>
           <div className="test3">
-            <h1>{sum + "$"}</h1>
+            <h1>{"Total :" + sum + "$"}</h1>
           </div>
         </div>
       ) : (
