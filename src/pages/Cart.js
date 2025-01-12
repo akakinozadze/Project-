@@ -3,8 +3,6 @@ const Cart = () => {
   const [getItemLocalStorage, setGetItemLocalStorage] = useState(() => {
     let retrieving = localStorage.getItem("Key");
     retrieving = retrieving ? JSON.parse(retrieving) : [];
-    console.log(retrieving, "ret");
-
     retrieving.forEach((item) => {
       if (!item.initialPrice) {
         item.initialPrice = item.price;

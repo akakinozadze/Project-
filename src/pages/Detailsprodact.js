@@ -10,7 +10,7 @@ const Detailsprodact = () => {
   const [errorMesage, setErrorMesage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://dummyjson.com/product/${params.dataId}`)
+    fetch(`https://dummyjson.com/product/${params.Detailsprodact}`)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -39,7 +39,9 @@ const Detailsprodact = () => {
       >
         Back to results
       </button>
-      {isLoading && <RiseLoader className="Loader" color="#2be714" size={"50px"} />}
+      {isLoading && (
+        <RiseLoader className="Loader" color="#2be714" size={"50px"} />
+      )}
       {data.map((element) => (
         <CardDetales key={element.id} element={element} />
       ))}
