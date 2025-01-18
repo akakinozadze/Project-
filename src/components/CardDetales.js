@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LocalStorage3 } from "../Localstorage/Localstorage";
+import { useNavigate } from "react-router-dom";
+import routes from "../constants/routes";
 
 const CardDetales = ({ element }) => {
-  const [price, setPrice] = useState(element.price);
-  const [select, setSelect] = useState([]);
-  const [sum, setSum] = useState(element.price);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (select == 1) {
-      setSum(price);
-    } else if (select == 2) {
-      setSum(price * 2);
-    } else if (select == 3) {
-      setSum(price * 3);
-    }
-  }, [select]);
+  const [select, setSelect] = useState(1);
+  let sum = [element.price].reduce((startSelector, price) => {
+    return startSelector * price;
+  }, select);
+
   const [urika, setUrika] = useState();
   const ClickHendler = () => {
     setUrika(element);
+    navigate(`${routes.cart}`);
   };
-  LocalStorage3(urika);
+  LocalStorage3(urika, select);
   return (
     <div className="CardDetalesBox">
       <div>
@@ -49,6 +46,8 @@ const CardDetales = ({ element }) => {
               <option>1</option>
               <option>2</option>
               <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
           </div>
           <p className="pharagrap">{element.availabilityStatus}</p>

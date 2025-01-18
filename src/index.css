@@ -202,7 +202,12 @@ table {
   justify-content: space-around;
   box-shadow: 3px 4px 4px;
   margin: 5px;
+  border-radius: 8px;
 }
+.NavBar button {
+  cursor: pointer;
+}
+
 .DetalsPagePharagap {
   font-size: 20px;
   font-weight: 500;
@@ -406,4 +411,7 @@ table {
   width: 100%;
   /* background-color: brown; */
   margin: auto;
+}
+body {
+  background-color: cadetblue;
 }

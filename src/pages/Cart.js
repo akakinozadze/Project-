@@ -27,8 +27,8 @@ const Cart = () => {
   };
   const IncrimentHendler = (index) => {
     let updatedStorage = [...getItemLocalStorage];
-    if (index >= 0 && updatedStorage[index].total < 10) {
-      updatedStorage[index].total = updatedStorage[index].total + 1;
+    if (index >= 0 && updatedStorage[index].total < 5) {
+      updatedStorage[index].total = Number(updatedStorage[index].total) + 1;
       updatedStorage[index].price = (
         parseFloat(updatedStorage[index].price) +
         parseFloat(updatedStorage[index].initialPrice)
@@ -57,8 +57,8 @@ const Cart = () => {
         <div className="TestOnli">
           <div className="test2">
             {getItemLocalStorage.map((element, index) => (
-              <div className="StoreMainBox">
-                <div key={index} className="storageBox1">
+              <div key={index} className="StoreMainBox">
+                <div className="storageBox1">
                   <div className="storageBox">
                     <img src={element.prPhoto}></img>
                     <p className="ElementName">{element.prName}</p>
