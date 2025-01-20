@@ -9,15 +9,11 @@ export function LocalStorage3(urika, select, sum) {
 
     if (index == -1 && select == undefined) {
       sumStorage.push({
+        initialPrice: urika.price,
         prName: urika.title,
         prPhoto: urika.thumbnail,
         price: urika.price,
         total: 1,
-      });
-      sumStorage.forEach((element) => {
-        if (!element.initialPrice) {
-          element.initialPrice = element.price;
-        }
       });
     }
     if (select > 0 && index == -1) {
