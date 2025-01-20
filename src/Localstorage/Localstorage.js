@@ -1,13 +1,8 @@
-export function LocalStorage3(urika, select) {
-  console.log(select, "punqciis seleqti");
+export function LocalStorage3(urika, select, sum) {
   if (urika) {
     let sumStorage = localStorage.getItem("Key");
     sumStorage = sumStorage ? JSON.parse(sumStorage) : [];
-    sumStorage.forEach((element) => {
-      if (!element.initialPrice) {
-        element.initialPrice = element.price;
-      }
-    });
+
     const index = sumStorage.findIndex(
       (element) => element.prName === urika.title
     );
@@ -19,12 +14,18 @@ export function LocalStorage3(urika, select) {
         price: urika.price,
         total: 1,
       });
+      sumStorage.forEach((element) => {
+        if (!element.initialPrice) {
+          element.initialPrice = element.price;
+        }
+      });
     }
     if (select > 0 && index == -1) {
       sumStorage.push({
+        initialPrice: urika.price,
         prName: urika.title,
         prPhoto: urika.thumbnail,
-        price: urika.price,
+        price: sum,
         total: select,
       });
     }

@@ -11,12 +11,10 @@ const CardDetales = ({ element }) => {
     return startSelector * price;
   }, select);
 
-  const [urika, setUrika] = useState();
   const ClickHendler = () => {
-    setUrika(element);
+    LocalStorage3(element, select, sum);
     navigate(`${routes.cart}`);
   };
-  LocalStorage3(urika, select);
   return (
     <div className="CardDetalesBox">
       <div>
