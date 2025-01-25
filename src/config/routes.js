@@ -3,8 +3,8 @@ import Home from "../pages/Home";
 import Prodact from "../pages/Prodact";
 import Detailsprodact from "../pages/Detailsprodact";
 import Cart from "../pages/Cart";
-import { Component } from "react";
 import SignIn from "../pages/SignIn";
+import Register from "../pages/Register";
 
 export const appRoutes = [
   {
@@ -26,5 +26,9 @@ export const appRoutes = [
   {
     path: routes.signIn,
     Component: SignIn,
+  },
+  {
+    path: routes.register,
+    Component: Register,
   },
 ];

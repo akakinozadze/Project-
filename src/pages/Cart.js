@@ -8,7 +8,6 @@ const Cart = () => {
         item.initialPrice = item.price;
       }
     });
-
     return retrieving;
   });
 

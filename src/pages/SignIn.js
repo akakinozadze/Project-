@@ -1,66 +1,47 @@
 import React, { useState } from "react";
 import { PostMethod } from "../api/PostMethod";
+import { useLocation } from "react-router-dom";
+import SignInForm from "../components/SignInForm";
 const SignIn = () => {
-  const [users, setUserst] = useState({
-    UserName: "",
-    Email: "",
-    Password: "",
-  });
-  const [error, setError] = useState("");
-  const [token, setToken] = useState([]);
-  console.log(users, "users");
-  console.log(error, "error");
-  console.log(token, "token");
-
-  const ClicsHendler = (e) => {
-    e.preventDefault();
-    PostMethod(users)
-      .then((data) => {
-        setToken(data);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  };
+  const { state } = useLocation();
+  console.log(state, "state");
 
   return (
-    <form className="form" onSubmit={ClicsHendler}>
-      <div>
-        <label htmlFor="UserName">UserName</label>
-        <input
-          name="UserName"
-          type="text"
-          placeholder="UserName"
-          onChange={(e) => {
-            setUserst((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-          }}
-        />
-      </div>
-      <div>
-        <label htmlFor="Email">Email</label>
-        <input
-          name="Email"
-          type="email"
-          placeholder="Email"
-          onChange={(e) => {
-            setUserst((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-          }}
-        />
-      </div>
-      <div>
-        <label htmlFor="Password">Password</label>
-        <input
-          name="Password"
-          type="password"
-          placeholder="Password"
-          onChange={(e) => {
-            setUserst((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-          }}
-        />
-      </div>
-      <button type="submit">Registre</button>
-    </form>
+    <div>
+      <h1>sign in</h1>
+      {state?.succses && (
+        <h2 style={{ color: "green" }}>
+          Congratulations successfully register
+        </h2>
+      )}
+      <SignInForm />
+    </div>
   );
 };
 
 export default SignIn;
+
+// let test = "akaki midle web developer";
+
+// console.log(test.at(-1));
+
+// let chanacvleba = "Hiasdasd";
+// // chanacvleba = "h" + chanacvleba.at(2);
+// // chanacvleba = chanacvleba[0] + "G";
+
+// console.log(chanacvleba.toUpperCase());
+
+// let str = "As sly as a fox, as strong as an ox";
+
+// let target = "as"; // let's look for it
+
+// let pos = 0;
+// while (true) {
+//   let foundPos = str.indexOf(target, pos);
+//   console.log(foundPos, "Found1");
+
+//   if (foundPos == -1) break;
+
+//   console.log(`Found at ${foundPos}`);
+//   pos = foundPos + 1;
+// }
