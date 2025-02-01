@@ -9,7 +9,6 @@ export async function authUser(user, action) {
   );
 
   const result = await resp.json();
-  console.log(result, "result1");
 
   if (resp.ok) {
     return result;

@@ -5,11 +5,13 @@ import Detailsprodact from "../pages/Detailsprodact";
 import Cart from "../pages/Cart";
 import SignIn from "../pages/SignIn";
 import Register from "../pages/Register";
+import AuthGuard from "../Guard/AuthGuard";
 
 export const appRoutes = [
   {
     path: routes.home,
     Component: Home,
+    Guard: AuthGuard,
   },
   {
     path: routes.products,

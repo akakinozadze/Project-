@@ -5,7 +5,9 @@ import {
   CreateIsProdactLoading,
   CreateSaveErrorData,
   CreateSaveProdactData,
+  signInUser,
 } from "./appActionCreators";
+import { isTokenVAlid } from "../utils";
 
 const appContext = createContext();
 
@@ -21,6 +23,13 @@ const AppContextProvaider = ({ children }) => {
       });
   }, []);
   const [state, dispatch] = useReducer(appReducer, initialeState);
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token && isTokenVAlid(token)) {
+      dispatch(signInUser(token));
+    }
+  }, []);
+
   return (
     <appContext.Provider value={{ state, dispatch }}>
       {children}

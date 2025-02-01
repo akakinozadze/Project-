@@ -18,16 +18,10 @@ export function CreateIsProdactLoading(payload) {
     payload,
   };
 }
-export function incrimentFnc(payload) {
-  return {
-    type: appAction.incriment,
-    payload,
-  };
-}
 
-export function decrimentFnc(payload) {
-  return {
-    type: appAction.decriment,
-    payload,
-  };
+export function signInUser(payload) {
+  return { type: appAction.signInUser, payload };
+}
+export function signOutUser() {
+  return { type: appAction.signOutUser };
 }

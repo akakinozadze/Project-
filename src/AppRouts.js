@@ -7,6 +7,19 @@ const AppRouts = () => {
   return (
     <Routes>
       {appRoutes.map((route, index) => {
+        if (route?.Guard) {
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={
+                <route.Guard>
+                  <route.Component />
+                </route.Guard>
+              }
+            />
+          );
+        }
         return (
           <Route key={index} path={route.path} element={<route.Component />} />
         );

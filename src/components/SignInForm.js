@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authUser } from "../api/auth";
 import routes from "../constants/routes";
+import { useApcontext } from "../context/AppContextProvaider";
+import { signInUser } from "../context/appActionCreators";
 
 const SignInForm = () => {
+  const { dispatch } = useApcontext();
+
   const [users, setUserst] = useState({
     userName: "",
     password: "",
@@ -15,6 +19,9 @@ const SignInForm = () => {
     e.preventDefault();
     authUser(users, "login")
       .then((data) => {
+        console.log(data);
+
+        dispatch(signInUser(data.token));
         navigate(routes.home);
       })
       .catch((error) => {

@@ -1,10 +1,13 @@
+import { parseToken, toggleLocalStorage } from "../utils";
 import { appAction } from "./actions";
 
 export const initialeState = {
-  counter: 0,
   Prodacts: [],
   ErrorProdactData: "",
   IsProdactLoading: true,
+  isUserLoggedIn: false,
+  user: null,
+  token: "",
 };
 
 export function appReducer(state, action) {
@@ -26,7 +29,15 @@ export function appReducer(state, action) {
     case appAction.IsProdactloading: {
       return { ...state, IsProdactLoading: payload };
     }
-
+    case appAction.signInUser: {
+      const user = parseToken(payload);
+      toggleLocalStorage(payload);
+      return { ...state, isUserLoggedIn: true, token: payload, user };
+    }
+    case appAction.signOutUser: {
+      toggleLocalStorage();
+      return { ...state, isUserLoggedIn: false, token: "", user: null };
+    }
     default:
       return state;
   }
